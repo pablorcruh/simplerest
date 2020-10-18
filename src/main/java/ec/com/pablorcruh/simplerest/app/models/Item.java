@@ -27,6 +27,12 @@ public class Item {
     private Double price;
 
     @Column(name = "create_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;
+
+    @PrePersist
+    private void prePersist(){
+        this.createAt = new Date();
+    }
 
 }

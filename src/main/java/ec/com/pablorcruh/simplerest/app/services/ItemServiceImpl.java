@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Pablo Cruz
@@ -39,5 +40,10 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public void deleteItem(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Item> findById(Long id) {
+        return repository.findById(id);
     }
 }
