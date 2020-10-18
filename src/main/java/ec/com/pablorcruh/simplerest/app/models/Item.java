@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -18,6 +15,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name ="items")
 public class Item {
 
     @Id
@@ -28,6 +26,7 @@ public class Item {
 
     private Double price;
 
+    @Column(name = "create_at")
     private Date createAt;
 
 }
