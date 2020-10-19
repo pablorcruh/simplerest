@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -47,7 +45,7 @@ public class ItemController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.updateItem(itemDB));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteItem(@PathVariable Long id){
         Optional<Item> item = service.findById(id);
         if(item.isEmpty()){
